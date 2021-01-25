@@ -13,8 +13,8 @@ services:
       - redis
       - swagger-ui
 #      - native
-    volumes:
-      - ./:/var/www/html
+#    volumes:
+#      - ./:/var/www/html
     networks:
       - app-network
     environment:
