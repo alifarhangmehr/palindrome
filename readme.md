@@ -75,14 +75,14 @@ First for knowing the API input and outputs please check Swagger/OpenAPI:
 http://localhost:8001
 ```
 
-<img src="https://raw.githubusercontent.com/alifarhangmehr/aws-test/master/images/swagger.png">
+<img src="https://raw.githubusercontent.com/alifarhangmehr/palindrome/master/images/swagger.png">
 
 You can "Try it out" with bearer token:
 ```
 Bearer 8efe07b353ccb4e5515d2062cb1976bf4cfdbfada6ffaf3c005e2c1e1515e6db
 ```
 
-<img src="https://raw.githubusercontent.com/alifarhangmehr/aws-test/master/images/swagger-execute.png">
+<img src="https://raw.githubusercontent.com/alifarhangmehr/palindrome/master/images/swagger-execute.png">
 
 
 There are a few ways to test this: <br />
@@ -90,7 +90,7 @@ There are a few ways to test this: <br />
 ### Postman
 Now that you know what API ask for and what returns, let's try it out in the Postman: <br />
 There is a postman export in `tests/Postman` that can easily be imported:
-<img src="https://raw.githubusercontent.com/alifarhangmehr/aws-test/master/images/postman.png">
+<img src="https://raw.githubusercontent.com/alifarhangmehr/palindrome/master/images/postman.png">
 
 Headers and body already configured for convenience, but feel free to play around with them.
 
@@ -99,9 +99,9 @@ The other way to call the APIs is through the front-end UI:
 ```
 http://localhost:3000
 ```
-<img src="https://raw.githubusercontent.com/alifarhangmehr/aws-test/master/images/react-1.png">
-<img src="https://raw.githubusercontent.com/alifarhangmehr/aws-test/master/images/react-2.png">
-<img src="https://raw.githubusercontent.com/alifarhangmehr/aws-test/master/images/react-3.png">
+<img src="https://raw.githubusercontent.com/alifarhangmehr/palindrome/master/images/react-1.png">
+<img src="https://raw.githubusercontent.com/alifarhangmehr/palindrome/master/images/react-2.png">
+<img src="https://raw.githubusercontent.com/alifarhangmehr/palindrome/master/images/react-3.png">
 
 ## Tests
 
@@ -110,7 +110,7 @@ I could have implement API testing in the app with Guzzle or similar API testing
 
 There are 37 tests that can be run in Postman (you should have them if already imported the postman file):
 
-<img src="https://raw.githubusercontent.com/alifarhangmehr/aws-test/master/images/postman-api-test.png">
+<img src="https://raw.githubusercontent.com/alifarhangmehr/palindrome/master/images/postman-api-test.png">
 
 Or alternatively by command line: <br />
 
@@ -224,7 +224,7 @@ $router->post('/v1/palindromes', function($request) {
 ```
 First, we define what type of request this supposed to be and then the URL, lastly calling the method for this endpoint from the load controller. <br />
 
-<img src="https://raw.githubusercontent.com/alifarhangmehr/aws-test/master/images/router-logic.jpg">
+<img src="https://raw.githubusercontent.com/alifarhangmehr/palindrome/master/images/router-logic.jpg">
 
 ### Architecture
 I decided to go with SOA architecture which is this case includes: <br />
@@ -243,7 +243,7 @@ This could have been Router->Controller->Flow->Service->Gateway if I was to add 
 #### Palindromes
 Controllers checks if the word is already cached, that's right I add a cache layer, and based on that either reads from the cache or calls the service and writes to the cache for the next time.
 
-<img src="https://raw.githubusercontent.com/alifarhangmehr/aws-test/master/images/palindrome-flow.jpg">
+<img src="https://raw.githubusercontent.com/alifarhangmehr/palindrome/master/images/palindrome-flow.jpg">
 
 Now you might ask why on earth you decided to add the caching layer? <br />
 Well, I figured the isPalindrome logic is just a test, but in the real-world, the logic is usually more complicated and requires read from the DB, which in that case caching will increase the performance drastically.
