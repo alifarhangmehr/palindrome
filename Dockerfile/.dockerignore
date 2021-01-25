@@ -1,0 +1,12 @@
+node_modules
+build
+.dockerignore
+Dockerfile
+vendor
+build
+Dockerfile
+MysqlDockerfile
+NginxDockerfile
+ReactNativeDockerfile
+ReactDockerfile
+SwaggerDockerfile

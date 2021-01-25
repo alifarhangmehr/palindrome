@@ -1,0 +1,147 @@
+swagger: "2.0"
+info:
+  description: "End point info for Palindrome"
+  version: "1.0"
+  title: "Swagger Palindrome"
+  contact:
+    email: "ali.farhangmehr@gmail.com"
+host: "localhost:8000"
+basePath: "/v1"
+schemes:
+  - "http"
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+paths:
+  /palindromes:
+    post:
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      tags:
+        - "Palindrome"
+      summary: "Check if the word is a palindrome or not"
+      parameters:
+        - in: body
+          name: user
+          description: The user to create.
+          schema:
+            type: object
+            required:
+              - word
+            properties:
+              word:
+                type: string
+      responses:
+        "200":
+          description: "Is / is not palindrome"
+        "400":
+          description: "Missing required fields"
+        "401":
+          description: "Invalid token"
+      security:
+        - Bearer: []
+  /users:
+    post:
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      tags:
+        - "User"
+      summary: "Adding user"
+      parameters:
+        - in: body
+          name: user
+          description: The user to create.
+          schema:
+            type: object
+            required:
+              - username
+              - password
+              - firstName
+              - lastName
+            properties:
+              username:
+                type: string
+              password:
+                type: string
+              firstName:
+                type: string
+              lastName:
+                type: string
+              emailAddress:
+                type: string
+      responses:
+        "200":
+          description: "User successfully created"
+        "400":
+          description: "Missing required fields"
+        "409":
+          description: "User is not unique"
+
+    patch:
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      tags:
+        - "User"
+      summary: "Updating user"
+      parameters:
+        - in: body
+          name: user
+          description: The user to update.
+          schema:
+            type: object
+            properties:
+              firstname:
+                type: string
+              lastname:
+                type: string
+              emailAddress:
+                type: string
+      responses:
+        "200":
+          description: "User successfully updated"
+        "400":
+          description: "No editable fields sent"
+        "401":
+          description: "Invalid token"
+        "409":
+          description: "User is not unique"
+      security:
+        - Bearer: []
+  /login:
+    post:
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      tags:
+        - "Login"
+      summary: "login and get user info + token"
+      parameters:
+        - in: body
+          name: user
+          description: The login call that returns user + token.
+          schema:
+            type: object
+            required:
+              - username
+              - password
+            properties:
+              username:
+                type: string
+              passwrod:
+                type: string
+      responses:
+        "200":
+          description: "Logs in"
+        "400":
+          description: "Missing required fields"
+        "401":
+          description: "Wrong credential(s)"

@@ -1,0 +1,18 @@
+{
+    "name": "test/aws-test",
+    "description": "aws test package",
+    "type": "project",
+    "require": {
+        "predis/predis": "^1.1.6",
+        "swagger-api/swagger-ui": "^3.40"
+    },
+    "authors": [
+        {
+            "name": "Ali Farhangmehr",
+            "email": "ali.farhangmehr@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}

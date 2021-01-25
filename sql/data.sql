@@ -1,0 +1,1 @@
+INSERT INTO user (id, username, password, date_created, date_modified, first_name, last_name, email_address, token) VALUES (1, 'ali', '39a22eb7c05fa3a5e4df1967d5ab0c46cfb9cfe96df440a0cd8e8317e2206a49', DEFAULT, DEFAULT, 'ali', 'farhangmehr', 'ali.farhangmehr@gmail.com', '8efe07b353ccb4e5515d2062cb1976bf4cfdbfada6ffaf3c005e2c1e1515e6db');

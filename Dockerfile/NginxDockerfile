@@ -1,0 +1,54 @@
+#FROM php:7.4-apache
+#FROM php:7-apache
+#FROM nginx
+#FROM php:7.4-fpm
+#
+#FROM php:7.4-cli
+#FROM yavin/alpine-php-fpm:7.0
+#FROM php:8.0.0-apache
+
+#FROM martinpham/php8:fpm-alpine
+#FROM php:8.0.0rc1-fpm
+
+
+FROM chrisb9/php8-nginx
+
+#Install bare minimum on os
+#RUN apt-get update \
+#    && apt-get install -y git \
+#    && apt-get install -y zip \
+#    && apt-get install -y unzip
+
+
+#Install bare minimum on os
+#RUN apk add -y git \
+#    && apk add -y zip \
+#    && apk add -y unzip
+
+
+RUN docker-php-ext-install pdo pdo_mysql mysqli
+#RUN a2enmod rewrite
+
+# Copy .htaccess into DocumentRoot
+#COPY .htaccess /app/.htaccess
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf.default
+
+
+#Copy Files and folders
+#COPY .htaccess /app/.htaccess
+COPY index.php /app/index.php
+COPY composer.json /app/composer.json
+#RUN nginx -s reload
+
+ADD Service /app/Service
+ADD Controller /app/Controller
+ADD Router /app/Router
+ADD pages /app/pages
+ADD public /app/public
+
+# Install & Run Composer
+#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#RUN composer update
+
+EXPOSE 80
