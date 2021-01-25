@@ -24,7 +24,8 @@ ADD Controller /var/www/html/Controller
 ADD Model /var/www/html/Model
 ADD Helper /var/www/html/Helper
 ADD sql /var/www/html/sql
-Add tests /var/www/html/tests
+ADD tests /var/www/html/tests
+ADD wrappers /var/www/html/wrappers
 
 #Use production ini file as default
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
