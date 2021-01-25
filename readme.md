@@ -21,7 +21,7 @@ And if Docker is not installed please install it from this page <a href="https:/
 Make sure git is installed and clone the repo to your local by running:
 
 ```
-git clone git@github.com:alifarhangmehr/aws-test.git
+git clone git@github.com:alifarhangmehr/palindrome.git
 ```
 
 ### 3) Docker-compose
